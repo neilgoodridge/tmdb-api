@@ -8,4 +8,25 @@ body {
 h1 {
     text-align: center;
     color: #333;
+    margin: 3vh !important;
+}
+
+
+.film-card {
+  max-width: 400px;
+  border: none !important;
+}
+
+.card-body {
+  padding: 0.5rem 0 !important;
+}
+
+p {
+  font-size: 0.75rem;
+  text-align: center;
+  font-weight: bold;
+}
+.card-img-top {
+  border-radius: 8px !important;
+  border: black solid 1px !important
 }
