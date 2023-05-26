@@ -23,11 +23,13 @@ def top_films():
             overview = film['overview']
             image = film['poster_path']
             id = film['id']
+            background = film['backdrop_path']
             movie_info = {
                 'title': title,
                 'id': id,
                 'overview': overview,
-                'poster_path': image
+                'poster_path': image,
+                'backdrop_path': background
             }
             film_details.append(movie_info)
 
