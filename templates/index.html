@@ -10,10 +10,15 @@
 </head>
 <body>
     <h1>Movie Collection</h1>
-    {% for film in films %}
-      <h5>{{ film }}</h5>
-    {% endfor %}
-
-
+    <ul>
+      {% for film in films %}
+      <li>
+        <h3>{{ film.title }}</h3>
+        <p>ID: {{ film.id }}</p>
+        <p>Overview: {{ film.overview }}</p>
+        <img src="https://image.tmdb.org/t/p/w500{{ film.poster_path }}" alt="{{ film.title }} Poster">
+      </li>
+      {% endfor %}
+    </ul>
 </body>
 </html>
