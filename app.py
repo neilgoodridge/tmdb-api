@@ -28,10 +28,10 @@ def top_films():
             movie_info = get_movie_details(movie_id)
             film_details.append(movie_info)
 
-        return render_template('index.html', films=film_details, total_pages=total_pages, current_page=current_page)
+        return render_template('top.html', films=film_details, total_pages=total_pages, current_page=current_page)
     else:
         print('Error')
-        return render_template('index.html', films=[])
+        return render_template('top.html', films=[])
 
 def get_movie_details(movie_id):
     endpoint = f'/movie/{movie_id}'
@@ -58,10 +58,27 @@ def get_movie_details(movie_id):
     else:
         return None
 
+def get_movie_credits(movie_id):
+    endpoint = f'/movie/{movie_id}/credits'
+    url = f'{base_url}{endpoint}?api_key={api_key}'
+
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        credits_data = response.json()
+        cast = credits_data['cast']
+        crew = credits_data['crew']
+        return cast, crew
+    else:
+        return [], []
+
 @app.route('/movie/<int:movie_id>')
 def movie_details(movie_id):
+    cast, crew = get_movie_credits(movie_id)
     movie = get_movie_details(movie_id)
-    return render_template('details.html', film=movie)
+
+    return render_template('details.html', film=movie, cast=cast, crew=crew)
+
 
 @app.route('/popular')
 def popular_films():

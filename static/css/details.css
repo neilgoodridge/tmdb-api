@@ -15,7 +15,7 @@ body {
 
 .film-details {
   display: block;
-  margin: 4%;
+  margin: 0 4%;
 }
 
 .film-title {
@@ -25,7 +25,6 @@ body {
 }
 
 .film-image {
-  max-height: 80vh;
   width: auto;
   margin-bottom: 20px;
   border-radius: 8px;
@@ -34,11 +33,19 @@ body {
 
 .film-overview {
   font-size: 16px;
-  line-height: 1.5;
   margin-bottom: 20px;
 }
 
 .film-id {
   font-size: 14px;
   color: #6c757d;
+}
+
+.details-left {
+  float: left;
+}
+
+.details-right {
+  float: right;
+  text-align: right;
 }

@@ -17,8 +17,29 @@
         <h1 class="film-title">{{ film.title }}</h1>
         <p class="film-overview">"{{ film.tagline }}"</p>
         <p class="film-overview">{{ film.overview }}</p>
-        <p class="film-overview">Release date: {{ film.release_date }}</p>
-        <p class="film-overview">Runtime: {{ film.runtime }} minutes</p>
+        <div class="cast-and-crew">
+          <div class="details-left">
+            {% for director in crew %}
+              {% if director.job == 'Director'%}
+                <h3>Director</h3>
+                <p class="film-overview">{{ director.name }}</p>
+              {% endif %}
+            {% endfor %}
+            {% set cast_limit = 8 %}
+            <h3>Cast</h3>
+              {% for actor in cast %}
+              {% if loop.index <= cast_limit %}
+                <p class="film-overview">{{ actor.name }} - {{ actor.character }}</p>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="details-right">
+            <h3>Release Date</h3>
+            <p class="film-overview">{{ film.release_date }}</p>
+            <h3>Runtime</h3>
+            <p class="film-overview">{{ film.runtime }} minutes</p>
+          </div>
+        </div>
       </div>
       {% else %}
       <p>No movie details found.</p>
