@@ -7,7 +7,7 @@ base_url = 'https://api.themoviedb.org/3'
 api_key = API_KEY
 app = Flask(__name__)
 
-print(f'\nYour API key is {api_key}. Please comment out this line once confirmed\n')
+# print(f'\nYour API key is {api_key}. Please comment out this line once confirmed\n')
 
 @app.route('/')
 def top_films():

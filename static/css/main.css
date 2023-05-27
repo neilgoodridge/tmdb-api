@@ -1,14 +1,14 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #F8F9FA !important;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #F8F9FA !important;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
-    text-align: center;
-    color: #333;
-    margin: 3vh !important;
+  text-align: center;
+  color: #333;
+  margin: 3vh !important;
 }
 
 .navbar {

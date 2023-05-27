@@ -29,12 +29,6 @@
   </nav>
   <div class="container">
     <h1>Movie Search</h1>
-    <!-- <form action="/search" method="GET" class="mb-3">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for movies" name="query" value="{{ query }}">
-        <button class="btn btn-primary" type="submit">Search</button>
-      </div>
-    </form> -->
     <h3>Search Results for '{{ query }}'</h3>
     <div class="row">
       {% for film in results %}
@@ -45,7 +39,6 @@
           </a>
           <div class="card-body">
             <p class="card-title">{{ film.title }}</p>
-
           </div>
         </div>
       </div>
@@ -61,17 +54,16 @@
           <a class="page-link" href="/search?query={{ query }}&page={{ current_page - 1 }}">Previous</a>
         </li>
         {% endif %}
-        {% if current_page and current_page < total_pages %} <li class="page-item">
-          <a class="page-link" href="/search?query={{ query }}&page={{ current_page + 1 }}">Next</a>
+        {% if current_page and current_page < total_pages %}
+          <li class="page-item">
+            <a class="page-link" href="/search?query={{ query }}&page={{ current_page + 1 }}">Next</a>
           </li>
           <li class="page-item">
             <a class="page-link" href="/search?query={{ query }}&page={{ total_pages }}">Last</a>
           </li>
-          {% endif %}
+        {% endif %}
       </ul>
     </nav>
   </div>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
