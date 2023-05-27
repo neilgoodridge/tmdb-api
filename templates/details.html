@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>{{ film.title }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/details.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/details.css') }}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
 </head>
-
 <body>
   <img src="https://image.tmdb.org/t/p/original{{ film.backdrop_path }}" class="film-backdrop" alt="{{ film.title }} Backdrop">
   <div class="container">
@@ -47,5 +45,4 @@
     </div>
   </div>
 </body>
-
 </html>
