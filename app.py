@@ -10,9 +10,9 @@ app = Flask(__name__)
 '''
 To test your API key is imported correctly and present by uncommenting line 15
 run 'python3 app.py' and you should see your API printed in the terminal.
-Comment out line 15 once you've verified it's present. 
+Comment out line 15 once you've verified it's present.
 '''
-# print(api_key)
+print(f'\nYour API key is {api_key}. Please comment out this line once confirmed\n')
 
 @app.route('/')
 def top_films():
