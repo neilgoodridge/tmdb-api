@@ -110,7 +110,7 @@ def popular_films():
 def search_films():
     query = request.args.get('query', '')
     endpoint = '/search/movie'
-    url = f'{base_url}{endpoint}?api_key={api_key}&query={query}'
+    url = f'{base_url}{endpoint}?api_key={api_key}&query={query}&sort_by=relevance'
 
     response = requests.get(url)
 
