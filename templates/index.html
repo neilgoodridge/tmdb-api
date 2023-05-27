@@ -15,8 +15,9 @@
         {% for film in films %}
         <div class="col-md-3">
           <div class="card film-card">
-            <img src="https://image.tmdb.org/t/p/w500{{ film.poster_path }}" class="card-img-top"
-              alt="{{ film.title }} Poster">
+            <a href="/movie/{{ film.id }}">
+              <img src="https://image.tmdb.org/t/p/w500{{ film.poster_path }}" class="card-img-top" alt="{{ film.title }} Poster">
+            </a>
             <div class="card-body">
               <p class="card-title">{{ film.title }}</p>
             </div>
