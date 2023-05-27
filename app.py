@@ -71,5 +71,27 @@ def movie_details(movie_id):
     movie = get_movie_details(movie_id)
     return render_template('details.html', film=movie)
 
+@app.route('/popular')
+def popular_films():
+    endpoint = '/movie/popular'
+    url = f'{base_url}{endpoint}?api_key={api_key}'
+
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        data = response.json()
+        popular_films = data['results']
+
+        film_details = []
+        for film in popular_films:
+            movie_id = film['id']
+            movie_info = get_movie_details(movie_id)
+            film_details.append(movie_info)
+
+        return render_template('popular.html', films=film_details)
+    else:
+        print('Error')
+        return render_template('popular.html', films=[])
+
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
