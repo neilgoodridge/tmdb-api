@@ -1,4 +1,4 @@
-Building TMDB linked website using an API.
+#Building TMDB linked website using an API.
 
 To get this to working, please visit https://developer.themoviedb.org/docs/getting-started and sign up for an account.
 
