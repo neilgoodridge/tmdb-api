@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 from api_key import API_KEY
+from datetime import datetime
 import requests
 
 base_url = 'https://api.themoviedb.org/3'
@@ -46,12 +47,20 @@ def get_movie_details(movie_id):
 
     if response.status_code == 200:
         movie_data = response.json()
+        release_date = movie_data['release_date']
+        formatted_release_date = datetime.strptime(release_date, '%Y-%m-%d').strftime('%-d %B %Y')
+
         movie_details = {
             'title': movie_data['title'],
             'overview': movie_data['overview'],
             'poster_path': movie_data['poster_path'],
             'id': movie_data['id'],
-            'backdrop_path': movie_data['backdrop_path']
+            'backdrop_path': movie_data['backdrop_path'],
+            'runtime': movie_data['runtime'],
+            'tagline': movie_data['tagline'],
+            'release_date': formatted_release_date
+
+
         }
         return movie_details
     else:
