@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Movie Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/details.css') }}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <!-- <img src="https://image.tmdb.org/t/p/w500{{ film.backdrop_path }}" class="film-backdrop" alt="{{ film.title }} Backdrop"> -->
+    <div class="film-container">
+      {% if film %}
+      <img src="https://image.tmdb.org/t/p/w500{{ film.poster_path }}" class="film-image" alt="{{ film.title }} Poster">
+      <div class="film-details">
+        <h1 class="film-title">{{ film.title }}</h1>
+        <p class="film-overview">{{ film.overview }}</p>
+      </div>
+      {% else %}
+      <p>No movie details found.</p>
+      {% endif %}
+    </div>
+  </div>
+</body>
+
+</html>

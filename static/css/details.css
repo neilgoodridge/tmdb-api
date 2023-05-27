@@ -1,0 +1,45 @@
+body {
+  background-color: #aeaeaeba;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.film-container {
+  display: flex;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.film-backdrop {
+  width: 100%;
+}
+
+.film-details {
+  display: block;
+  margin: 4%;
+}
+
+.film-title {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.film-image {
+  max-height: 80vh;
+  width: auto;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: black 2px solid;
+}
+
+.film-overview {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.film-id {
+  font-size: 14px;
+  color: #6c757d;
+}

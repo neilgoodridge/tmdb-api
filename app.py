@@ -38,5 +38,29 @@ def top_films():
         print('Error')
         return render_template('index.html', films=[])
 
+def get_movie_details(movie_id):
+    endpoint = f'/movie/{movie_id}'
+    url = f'{base_url}{endpoint}?api_key={api_key}'
+
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        movie_data = response.json()
+        movie_details = {
+            'title': movie_data['title'],
+            'overview': movie_data['overview'],
+            'poster_path': movie_data['poster_path'],
+            'id': movie_data['id'],
+            'backdrop_path': movie_data['backdrop_path']
+        }
+        return movie_details
+    else:
+        return None
+
+@app.route('/movie/<int:movie_id>')
+def movie_details(movie_id):
+    movie = get_movie_details(movie_id)
+    return render_template('details.html', film=movie)
+
 if __name__ == '__main__':
     app.run()
