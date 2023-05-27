@@ -12,7 +12,7 @@ The api_key.py file is already gitignored, so it won't push to Github.
 
 Run the following in your terminal to run the Flask app.
 
-'''
+
 pip3 install virtualenv
 python3 -m venv venv
 source venv/bin/activate
@@ -20,4 +20,3 @@ pip install Flask
 export FLASK_APP=app.py
 export FLASK_DEBUG=1
 flask run
-'''
