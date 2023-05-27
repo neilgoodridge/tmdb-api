@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from api_key import API_KEY
 from datetime import datetime
 import requests
@@ -9,8 +9,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def top_films():
+    page = request.args.get('page', 1, type=int)
     endpoint = '/movie/top_rated'
-    url = f'{base_url}{endpoint}?api_key={api_key}'
+    url = f'{base_url}{endpoint}?api_key={api_key}&page={page}'
 
     response = requests.get(url)
 
@@ -18,23 +19,16 @@ def top_films():
         data = response.json()
         top_films = data['results']
 
+        total_pages = data['total_pages']
+        current_page = data['page']
+
         film_details = []
         for film in top_films:
-            title = film['title']
-            overview = film['overview']
-            image = film['poster_path']
-            id = film['id']
-            background = film['backdrop_path']
-            movie_info = {
-                'title': title,
-                'id': id,
-                'overview': overview,
-                'poster_path': image,
-                'backdrop_path': background
-            }
+            movie_id = film['id']
+            movie_info = get_movie_details(movie_id)
             film_details.append(movie_info)
 
-        return render_template('index.html', films=film_details)
+        return render_template('index.html', films=film_details, total_pages=total_pages, current_page=current_page)
     else:
         print('Error')
         return render_template('index.html', films=[])
@@ -59,8 +53,6 @@ def get_movie_details(movie_id):
             'runtime': movie_data['runtime'],
             'tagline': movie_data['tagline'],
             'release_date': formatted_release_date
-
-
         }
         return movie_details
     else:
@@ -73,8 +65,9 @@ def movie_details(movie_id):
 
 @app.route('/popular')
 def popular_films():
+    page = request.args.get('page', 1, type=int)
     endpoint = '/movie/popular'
-    url = f'{base_url}{endpoint}?api_key={api_key}'
+    url = f'{base_url}{endpoint}?api_key={api_key}&page={page}'
 
     response = requests.get(url)
 
@@ -82,13 +75,16 @@ def popular_films():
         data = response.json()
         popular_films = data['results']
 
+        total_pages = data['total_pages']
+        current_page = data['page']
+
         film_details = []
         for film in popular_films:
             movie_id = film['id']
             movie_info = get_movie_details(movie_id)
             film_details.append(movie_info)
 
-        return render_template('popular.html', films=film_details)
+        return render_template('popular.html', films=film_details, total_pages=total_pages, current_page=current_page)
     else:
         print('Error')
         return render_template('popular.html', films=[])

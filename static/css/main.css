@@ -30,3 +30,14 @@ p {
   border-radius: 8px !important;
   border: black solid 1px !important
 }
+
+.pagination {
+  justify-content: center;
+}
+
+.page-link {
+  margin: 0 1vw;
+  width: 10vw;
+  text-align: center;
+  border: black solid 1px !important
+}
