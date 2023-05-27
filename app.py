@@ -89,5 +89,24 @@ def popular_films():
         print('Error')
         return render_template('popular.html', films=[])
 
+@app.route('/search')
+def search_films():
+    query = request.args.get('query', '')
+    endpoint = '/search/movie'
+    url = f'{base_url}{endpoint}?api_key={api_key}&query={query}'
+
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        data = response.json()
+        search_results = data['results']
+        total_pages = data['total_pages']
+
+        return render_template('search.html', results=search_results, query=query, current_page=None, total_pages=total_pages)
+    else:
+        print('Error')
+        return render_template('search.html', results=[], query=query)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
