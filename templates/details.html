@@ -26,8 +26,8 @@
             {% set cast_limit = 8 %}
             <h3 class="cast">Cast</h3>
               {% for actor in cast %}
-              {% if loop.index <= cast_limit %}
-                <p class="cast-names">{{ actor.name }} - {{ actor.character }}</p>
+              {% if loop.index < cast_limit %}
+                <strong>{{ actor.name }}</strong> - {{ actor.character }}</p>
               {% endif %}
             {% endfor %}
           </div>
