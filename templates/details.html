@@ -15,7 +15,10 @@
       <img src="https://image.tmdb.org/t/p/w500{{ film.poster_path }}" class="film-image" alt="{{ film.title }} Poster">
       <div class="film-details">
         <h1 class="film-title">{{ film.title }}</h1>
+        <p class="film-overview">"{{ film.tagline }}"</p>
         <p class="film-overview">{{ film.overview }}</p>
+        <p class="film-overview">Release date: {{ film.release_date }}</p>
+        <p class="film-overview">Runtime: {{ film.runtime }} minutes</p>
       </div>
       {% else %}
       <p>No movie details found.</p>
