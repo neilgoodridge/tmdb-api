@@ -15,6 +15,8 @@ If you do not see your API key printed, please revisit the instructions above.
 
 Once the above is confirmed working, run the following in your terminal to run the Flask app, you can visit the site to see it in action [here](http://127.0.0.1:5000/)
 
+This is currently best viewed in full screen as break points have not yet been added. 
+
 ```
 pip3 install virtualenv
 python3 -m venv venv
