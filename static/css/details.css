@@ -16,6 +16,10 @@ body {
   height: 90vh;
 }
 
+h3 {
+  margin-top: 1vh;
+}
+
 .film-backdrop {
   position: absolute;
   top: 0;
@@ -44,8 +48,8 @@ body {
 }
 
 .film-overview {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
+  font-size: 1.3rem;
+  /* margin: 1vh; */
 }
 
 .film-id {
@@ -53,15 +57,64 @@ body {
   color: #6c757d;
 }
 
+.director-and-runtime {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5vh;
+}
+.director-and-runtime p {
+  font-size: 1.2rem;
+}
 .details-left {
   float: left;
+  clear: both;
 }
 
 .details-right {
   float: right;
   text-align: right;
+  clear: both;
 }
 
-.cast, .runtime {
-  margin-top: 7vh;
+
+.actors {
+  margin-top: 20px;
+  clear: both;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.col-md-3 {
+  width: 23%;
+  margin-bottom: 20px;
+}
+
+.actor-image-frame {
+  text-align: center;
+}
+
+.actor-image {
+  width: 70%;
+  height: 15vh;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+}
+
+.actor-details {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.runtime {
+  margin-top: 5vh;
+}
+
+.film-tagline {
+  margin: 3vh 0;
+  font-size: 1.3rem;
 }
