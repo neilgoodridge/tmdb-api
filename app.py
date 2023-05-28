@@ -79,7 +79,14 @@ def movie_details(movie_id):
     cast, crew = get_movie_credits(movie_id)
     movie = get_movie_details(movie_id)
 
-    return render_template('details.html', film=movie, cast=cast, crew=crew)
+    cast_details = []
+    for actor in cast:
+        person_id = actor['id']
+        person_info = get_person_details(person_id)
+        if person_info:
+            cast_details.append(person_info)
+
+    return render_template('details.html', film=movie, cast=cast, crew=crew, cast_details=cast_details)
 
 
 @app.route('/popular')
@@ -126,6 +133,17 @@ def search_films():
         print('Error')
         return render_template('search.html', results=[], query=query)
 
+def get_person_details(person_id):
+    endpoint = f'/person/{person_id}'
+    url = f'{base_url}{endpoint}?api_key={api_key}'
+
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        person_data = response.json()
+        return person_data
+    else:
+        return None
 
 if __name__ == '__main__':
     app.run(debug=True)
