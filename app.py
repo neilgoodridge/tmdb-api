@@ -156,7 +156,7 @@ def get_person_details(person_id):
         return None
 
 def get_combined_credits(person_id):
-    endpoint = f'/person/{person_id}/combined_credits'
+    endpoint = f'/person/{person_id}/movie_credits'
     url = f'{base_url}{endpoint}?api_key={api_key}'
 
     response = requests.get(url)
