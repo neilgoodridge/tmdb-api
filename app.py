@@ -86,7 +86,7 @@ def movie_details(movie_id):
         if person_info:
             cast_details.append(person_info)
 
-    return render_template('details.html', film=movie, cast=cast, crew=crew, cast_details=cast_details)
+    return render_template('details.html', film=movie, cast=cast, crew=crew, cast_details=cast_details, get_initials=get_initials)
 
 
 @app.route('/popular')
@@ -167,6 +167,13 @@ def get_combined_credits(person_id):
         return combined_credits
     else:
         return []
+
+def get_initials(name):
+    initials = ""
+    name_parts = name.split()
+    for part in name_parts:
+        initials += part[0].upper()
+    return initials
 
 if __name__ == '__main__':
     app.run(debug=True)
