@@ -133,6 +133,16 @@ def search_films():
         print('Error')
         return render_template('search.html', results=[], query=query)
 
+
+@app.route('/person/<int:person_id>')
+def cast_details(person_id):
+    person_info = get_person_details(person_id)
+    combined_credits = get_combined_credits(person_id)
+    if person_info:
+        return render_template('cast.html', person=person_info, combined_credits=combined_credits)
+    else:
+        return render_template('cast.html', person=None)
+
 def get_person_details(person_id):
     endpoint = f'/person/{person_id}'
     url = f'{base_url}{endpoint}?api_key={api_key}'
@@ -144,6 +154,19 @@ def get_person_details(person_id):
         return person_data
     else:
         return None
+
+def get_combined_credits(person_id):
+    endpoint = f'/person/{person_id}/combined_credits'
+    url = f'{base_url}{endpoint}?api_key={api_key}'
+
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        credits_data = response.json()
+        combined_credits = credits_data['cast']
+        return combined_credits
+    else:
+        return []
 
 if __name__ == '__main__':
     app.run(debug=True)
