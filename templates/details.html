@@ -104,31 +104,34 @@
             <p class="film-overview">{{ film.runtime }} minutes</p>
           </div>
         </div>
-        {% set cast_limit = 8 %}
-          <div class="cast">
-            <h3>Cast</h3>
-            <div class="row">
-              {% for actor in film.cast %}
-                {% if loop.index <= cast_limit %}
-                  <div class="col-md-3">
-                    <div class="actor-image-frame">
-                      <a href="/person/{{ actor.id }}">
-                        <img src="https://image.tmdb.org/t/p/w200{{ actor.profile_path }}" alt="{{ actor.name }} Profile" class="actor-image" />
-                        <div class="actor-details">
-                          <strong>{{ actor.name }}</strong>
-                          <span>{{ actor.character }}</span>
-                        </div>
-                      </a>
-                    </div>
+        <!-- {% set cast_limit = 8 %} -->
+        <div class="actors">
+          <h3 class="cast">Cast</h3>
+          <div class="row" style="flex-wrap: nowrap; overflow-x: auto;">
+            {% for actor in cast %}
+            <!-- {% if loop.index <= cast_limit %} -->
+            <div class="col-md-3" style="flex: 0 0 auto;">
+              <div class="actor-image-frame">
+                <a href="/person/{{ actor.id }}">
+                  <strong class="actor-name">{{ actor.name }}</strong><br>
+                  <img
+                    src="https://image.tmdb.org/t/p/w200{{ actor.profile_path }}"
+                    alt="{{ actor.name }} Profile"
+                    class="actor-image"/>
+                  <div class="actor-details">
+                    <span class="character-name">{{ actor.character }}</span>
                   </div>
-                {% endif %}
-              {% endfor %}
+                </a>
+              </div>
             </div>
+            <!-- {% endif %}  -->
+            {% endfor %}
           </div>
-          {% else %}
-          <p>No movie details found.</p>
-          {% endif %}
         </div>
+      </div>
+      {% else %}
+      <p>No movie details found.</p>
+      {% endif %}
       </div>
     </div>
   </body>
