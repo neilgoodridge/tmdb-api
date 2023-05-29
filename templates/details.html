@@ -35,20 +35,19 @@
           <h3 class="cast">Cast</h3>
           <div class="row" style="flex-wrap: nowrap; overflow-x: auto;">
             {% for actor in cast %}
+            {% if actor.profile_path %}
             <div class="col-md-3" style="flex: 0 0 auto;">
               <div class="actor-image-frame">
                 <a href="/person/{{ actor.id }}">
                   <strong class="actor-name">{{ actor.name }}</strong><br>
-                  <img
-                    src="https://image.tmdb.org/t/p/w200{{ actor.profile_path }}"
-                    alt="{{ actor.name }} Profile"
-                    class="actor-image"/>
+                    <img src="https://image.tmdb.org/t/p/w200{{ actor.profile_path }}" alt="{{ actor.name }} Profile" class="actor-image"/>
                   <div class="actor-details">
                     <span class="character-name">{{ actor.character }}</span>
                   </div>
                 </a>
               </div>
             </div>
+            {% endif %}
             {% endfor %}
           </div>
         </div>
