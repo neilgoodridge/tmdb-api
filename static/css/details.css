@@ -7,6 +7,7 @@ body {
   position: relative;
   color: white;
   text-shadow: 2px 2px 5px grey;
+  overflow-x: hidden;
 }
 
 .film-container {
@@ -49,7 +50,7 @@ h3 {
 
 .film-overview {
   font-size: 1.3rem;
-  /* margin: 1vh; */
+  width: 55vw;
 }
 
 .film-id {
@@ -61,42 +62,48 @@ h3 {
   display: flex;
   justify-content: space-between;
   margin: 5vh 5vh 0 0;
+  width: 55vw;
 }
 .director-and-runtime p {
   font-size: 1.2rem;
+  float: inherit;
+  margin-top: -1vh;
 }
+
 .details-left {
   float: left;
-  clear: both;
+  width: 50%;
 }
 
 .details-right {
   float: right;
   text-align: right;
-  clear: both;
+  width: 50%;
 }
 
-
 .actors {
-  margin-top: 20px;
-  clear: both;
-  margin-top: 0;
+  width: 100%;
+  overflow-x: scroll;
+  white-space: nowrap;
+  position: relative;
+  width: 55vw;
 }
 
 .row {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  overflow-x: auto;
 }
 
 .col-md-3 {
-  width: 20%;
+  flex-basis: 20%;
+  margin-left: 5px;
 }
-
 .actor-image-frame {
   text-align: center;
-  display: flex;
-  margin-left: 0;
+  display: inline-block;
+  margin-left: -2vw;
 }
 
 .actor-image {
@@ -133,8 +140,9 @@ h3 {
 }
 
 .actors {
-  width: 100%;
-  overflow-x: scroll;
+  /* width: 100%; */
+  /* overflow: hidden; */
+  overflow-x: hidden;
   white-space: nowrap;
   position: relative;
 }
