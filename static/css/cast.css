@@ -1,0 +1,73 @@
+.body {
+  background-color: #F8F9FA !important;
+}
+.person-container {
+  margin: 5vh;
+}
+
+.person-details {
+  display: flex;
+  align-items: flex-start;
+}
+
+.person-image {
+  width: 18vw;
+  height: auto;
+  margin-right: 3vw;
+  border-radius: 8px;
+  border: black 2px solid;
+}
+h2 {
+  margin: 1vh 0 !important;
+}
+.person-info {
+  flex-grow: 1;
+}
+
+.person-bio {
+  max-height: 35vh;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.person-bio p {
+  margin-bottom: 0;
+}
+
+.credits-list {
+  display: flex;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.credit-item {
+  flex: 0 0 auto;
+  margin-right: 10px;
+  scroll-snap-align: center;
+}
+
+.credit-image {
+  width: 150px;
+  height: auto;
+  border-radius: 8px;
+  border: black 2px solid;
+}
+
+.credits-title {
+  margin: 5vh 0 2vh;
+}
+
+.credit-title {
+  text-align: center;
+  word-wrap: break-word;
+  width: 150px;
+  text-decoration: none;
+  color: rgb(33, 33, 33);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.credit-title:hover {
+  text-decoration: none;
+}
