@@ -31,12 +31,10 @@
             <p class="film-overview">{{ film.runtime }} minutes</p>
           </div>
         </div>
-        <!-- {% set cast_limit = 8 %} -->
         <div class="actors">
           <h3 class="cast">Cast</h3>
           <div class="row" style="flex-wrap: nowrap; overflow-x: auto;">
             {% for actor in cast %}
-            <!-- {% if loop.index <= cast_limit %} -->
             <div class="col-md-3" style="flex: 0 0 auto;">
               <div class="actor-image-frame">
                 <a href="/person/{{ actor.id }}">
@@ -51,7 +49,6 @@
                 </a>
               </div>
             </div>
-            <!-- {% endif %}  -->
             {% endfor %}
           </div>
         </div>
