@@ -140,8 +140,6 @@ h3 {
 }
 
 .actors {
-  /* width: 100%; */
-  /* overflow: hidden; */
   overflow-x: hidden;
   white-space: nowrap;
   position: relative;
