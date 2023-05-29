@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="static/css/cast.css" class="css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Cast Details</h1>
+      {% if person %}
+        <div class="person-details">
+          <h2>{{ person.name }}</h2>
+          <img src="https://image.tmdb.org/t/p/w200{{ person.profile_path }}" alt="{{ person.name }} Profile" class="person-image" />
+          <p>{{ person.biography }}</p><br><br>
+        </div>
+        <h2>Movie Credits</h2>
+        {% if combined_credits %}
+          <ul>
+            {% for credit in combined_credits %}
+              <p>{{ credit.title }}</p>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>No combined credits found.</p>
+        {% endif %}
+      {% else %}
+        <p>No cast details found.</p>
+      {% endif %}
+    </div>
+  </body>
+</html>
