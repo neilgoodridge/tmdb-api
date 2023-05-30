@@ -17,6 +17,7 @@ h1 {
 
 .film-card {
   max-width: 400px;
+  aspect-ratio: 227/338;
   border: none !important;
 }
 
