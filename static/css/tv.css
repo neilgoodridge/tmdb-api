@@ -1,0 +1,58 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #F8F9FA !important;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin: 3vh !important;
+}
+
+.navbar {
+  background-color: #F8F9FA;
+}
+
+.show-card {
+  max-width: 400px;
+  border: none !important;
+  background-color: transparent;
+}
+
+.card-body {
+  padding: 0.5rem 0 !important;
+  background-color: #F8F9FA;
+}
+
+p {
+  font-size: 0.75rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.card-img-top {
+  border-radius: 8px !important;
+  border: black solid 2px !important;
+  aspect-ratio: 227/338;
+}
+
+.pagination {
+  justify-content: center;
+}
+
+.page-link {
+  margin: 0 1vw;
+  width: 10vw;
+  text-align: center;
+  border: black solid 1px !important;
+}
+
+.form-control {
+  border-radius: 8px 0 0 8px !important;
+}
+
+.btn-outline-primary {
+  border-radius: 0 8px 8px 0 !important;
+}
