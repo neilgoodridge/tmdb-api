@@ -32,6 +32,7 @@
     <h3>Search Results for '{{ query }}'</h3>
     <div class="row">
       {% for film in results %}
+      {% if film.poster_path %}
       <div class="col-md-3">
         <div class="card film-card">
           <a href="/movie/{{ film.id }}">
@@ -42,6 +43,7 @@
           </div>
         </div>
       </div>
+      {% endif %}
       {% endfor %}
     </div>
     {% if current_page and current_page > 1 %}
