@@ -22,12 +22,14 @@
           <div class="credits-list">
             {% if combined_credits %}
               {% for credit in combined_credits %}
-              <div class="credit-item">
-                <a href="/movie/{{ credit.id }}">
-                  <img src="https://image.tmdb.org/t/p/w200{{ credit.poster_path }}" alt="{{ credit.title }}" class="credit-image" />
-                  <p class="credit-title">{{ credit.title }}</p>
-                </a>
-              </div>
+                {% if credit.poster_path %}
+                  <div class="credit-item">
+                    <a href="/movie/{{ credit.id }}">
+                      <img src="https://image.tmdb.org/t/p/w200{{ credit.poster_path }}" alt="{{ credit.title }}" class="credit-image" />
+                      <p class="credit-title">{{ credit.title }}</p>
+                    </a>
+                  </div>
+                {% endif %}
               {% endfor %}
             {% else %}
               <p>No combined credits found.</p>
