@@ -175,5 +175,56 @@ def get_initials(name):
         initials += part[0].upper()
     return initials
 
+@app.route('/tv')
+def top_tv_shows():
+    page = request.args.get('page', 1, type=int)
+    endpoint = '/tv/top_rated'
+    url = f'{base_url}{endpoint}?api_key={api_key}&page={page}'
+
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        data = response.json()
+        top_shows = data['results']
+
+        total_pages = data['total_pages']
+        current_page = data['page']
+
+        show_details = []
+        for show in top_shows:
+            show_id = show['id']
+            show_info = get_show_details(show_id)
+            show_details.append(show_info)
+
+        return render_template('top_tv.html', shows=show_details, total_pages=total_pages, current_page=current_page)
+    else:
+        print('Error')
+        return render_template('top_tv.html', shows=[])
+
+
+def get_show_details(show_id):
+    endpoint = f'/tv/{show_id}'
+    url = f'{base_url}{endpoint}?api_key={api_key}'
+
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        show_data = response.json()
+        first_air_date = show_data['first_air_date']
+        formatted_first_air_date = datetime.strptime(first_air_date, '%Y-%m-%d').strftime('%-d %B %Y')
+
+        show_details = {
+            'name': show_data['name'],
+            'overview': show_data['overview'],
+            'poster_path': show_data['poster_path'],
+            'id': show_data['id'],
+            'backdrop_path': show_data['backdrop_path'],
+            'episode_runtime': show_data['episode_run_time'],
+            'first_air_date': formatted_first_air_date
+        }
+        return show_details
+    else:
+        return None
+
 if __name__ == '__main__':
     app.run(debug=True)
