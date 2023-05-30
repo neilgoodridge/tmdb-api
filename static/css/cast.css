@@ -1,8 +1,11 @@
-.body {
-  background-color: #F8F9FA !important;
-}
+
 .person-container {
-  margin: 5vh;
+  margin: 2vh 0;
+  background-color: #dedede;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 2%;
+  max-height: 96vh;
 }
 
 .person-details {
@@ -25,7 +28,7 @@ h2 {
 }
 
 .person-bio {
-  max-height: 35vh;
+  max-height: 40vh;
   overflow-y: scroll;
   position: relative;
 }
@@ -49,13 +52,14 @@ h2 {
 
 .credit-image {
   width: 150px;
-  height: auto;
+  aspect-ratio: 227/338;
   border-radius: 8px;
   border: black 2px solid;
 }
 
 .credits-title {
-  margin: 5vh 0 2vh;
+  margin: 4vh 0 2vh;
+  text-align: center;
 }
 
 .credit-title {
