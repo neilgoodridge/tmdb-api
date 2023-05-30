@@ -49,7 +49,7 @@ h3 {
 }
 
 .film-overview {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   width: 55vw;
 }
 
@@ -108,7 +108,7 @@ h3 {
 
 .actor-image {
   width: 70%;
-  height: auto;
+  aspect-ratio: 227/338;
   border-radius: 8px;
   object-fit: cover;
   border: 2px solid black;
