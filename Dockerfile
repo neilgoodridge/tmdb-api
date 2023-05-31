@@ -1,7 +1,8 @@
-FROM python:3.latest
+FROM python:3.10-alpine
 WORKDIR /app
-ADD . /app
+COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
-EXPOSE 80
-ENV NAME World
-CMD ["python3", "app.py"]
+COPY . .
+EXPOSE 5000
+ENV FLASK_APP=app.py
+CMD ["flask", "run", "--host=0.0.0.0"]
